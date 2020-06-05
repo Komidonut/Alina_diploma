@@ -14,6 +14,8 @@
       crossorigin=""
     />
 
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
     <!-- Leaflet JS -->
     <script
       src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -21,30 +23,28 @@
       crossorigin=""
     ></script>
   </head>
+
+
+
   <body>
-    <div id="mapid" style="width: 100%; height: 600px;">
-      <script>
-          
-        var mymap = L.map("mapid",{crs: L.CRS.EPSG3395}).setView([66.036036, 60.109374], 14);
-        var marker1 = L.marker([66.032838, 60.088255]).addTo(mymap).on('click', function(e) {
-            alert('Кликнул по первому маркеру!')
-        });
-        marker1.bindPopup("<b>Первый маркер</b><br>Маркер моей мечты").openPopup();
-        var marker2 = L.marker([66.030559, 60.093376]).addTo(mymap).on('click', function(e) {
-            alert('Кликнул по второму маркеру!')
-        });;
-        marker2.bindPopup("<b>Второй маркер</b><br>Маркер моей жены.").openPopup();
-        
-        L.tileLayer(
-          "http://vec{s}.maps.yandex.net/tiles?l=map&v=4.55.2&z={z}&x={x}&y={y}&scale=2&lang=ru_RU",
-          {
-            subdomains: ["01", "02", "03", "04"],
-            attribution: '<a http="yandex.ru" target="_blank">Яндекс</a>',
-            reuseTiles: true,
-            updateWhenIdle: false,
-          }
-        ).addTo(mymap);
-      </script>
+    <!-- Side card definition and style-->
+    <div id="sideCard">
+      <a
+        href="javascript:void(0)"
+        style="
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        "
+        onclick="closeSide"
+        >&times;</a
+      >
+      <p id="markerDescription"></p>
     </div>
+    <!-- Создаём элемент карты -->
+    <div id="mapid" style="width: 100%; height: 600px;"></div>
+    <script src="map.js"></script>
   </body>
 </html>
