@@ -1,21 +1,45 @@
+
+
 #sideCard
-    {
-        height: 100%;
-        width: 0;
-        position: fixed;
-        z-index: 10000;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 60px;
-        text-align: center;
-    }
-#markerDescription{
-    width: 80%;
+{
+position: fixed;
+z-index: 10000;
+top: 0;
+left: 0;
+height: 100%;
+width: 0px;
+background-color: #111;
+overflow: hidden;
+transition: 0.5s;
+
+}
+
+#markerWrapper
+{
+    min-width: 250px;
+}
+#markerDescription
+{
     color: aliceblue;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
+    
+    width: 30em;
+
+}
+
+
+#markerImage
+{
+
+   width: 250px; 
+}
+
+
+#closeIcon
+{
+display: block;
+
+width: 1em;
+align-self: flex-end;
+margin-inline-end: 1em;
 }
