@@ -23,7 +23,7 @@ transform: translateX(-100%);
     margin: 2em auto;
 }
 
-@keyframes reopen {
+@keyframes opacity {
     0%{
         opacity:0;
     }
@@ -35,8 +35,8 @@ transform: translateX(-100%);
     }
 }
 
-.reopen {
-    animation-name: reopen;
+.opacity {
+    animation-name: opacity;
     animation-duration:1s;
     animation-timing-function: ease-in;
     

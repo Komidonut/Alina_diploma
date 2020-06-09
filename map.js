@@ -16,24 +16,32 @@ var marker2 = L.marker([66.030559, 60.093376]).addTo(mymap);
 // Укорачиваем вызов нужного элемента
 var sideCard = document.getElementById("sideCard");
 var isActive = document.getElementsByClassName("active");
-
+var clicked = "";
 // Вешаем открытие боковой карточки с нужным содержанием на маркеры.
 marker1.on("click", function () {
-  if (sideCard.classList.contains("active")) {
-    reopen();
+  if (clicked !== this.getLatLng()) {
+    opacity();
+    clickZoom(this);
+    openSide();
+    setTimeout(function () {
+      document.getElementById("markerDescription").innerHTML =
+        "Маркер Первый Маркер Первый Маркер Первый Маркер Первый Маркер Первый ";
+    }, 200);
+    clicked = this.getLatLng();
   }
-  clickZoom(this);
-  openSide();
-  document.getElementById("markerDescription").innerHTML =
-    "Маркер Первый Маркер Первый Маркер Первый Маркер Первый Маркер Первый ";
 });
 
 marker2.on("click", function () {
-  sideCard.classList.add("active");
-  clickZoom(this);
-  openSide();
-  document.getElementById("markerDescription").innerHTML =
-    "Маркер 22222222 Маркер 22222222 Маркер 22222222 Маркер 22222222 Маркер 22222222 ";
+  if (clicked !== this.getLatLng()) {
+    opacity();
+    clickZoom(this);
+    openSide();
+    setTimeout(function () {
+      document.getElementById("markerDescription").innerHTML =
+        "Маркер 22222222 Маркер 22222222 Маркер 22222222 Маркер 22222222 Маркер 22222222 ";
+    }, 200);
+    clicked = this.getLatLng();
+  }
 });
 
 // Покрываем карту тайлами от Яндекс Карт.
@@ -49,23 +57,22 @@ L.tileLayer(
 
 // Определяем функции
 function openSide() {
-    
   sideCard.style.transform = "translateX(0%)";
 }
 function closeSide() {
   sideCard.style.transform = "translateX(-100%)";
+  clicked = "";
 }
 
-function reopen() {
-    document.querySelector("#markerWrapper").className = "";
-    window.requestAnimationFrame(function(time) {
-      window.requestAnimationFrame(function(time) {
-        document.querySelector("#markerWrapper").className = "reopen";
-      });
+function opacity() {
+  document.querySelector("#markerWrapper").className = "";
+  window.requestAnimationFrame(function (time) {
+    window.requestAnimationFrame(function (time) {
+      document.querySelector("#markerWrapper").className = "opacity";
     });
-  }
+  });
+}
 
 function clickZoom(marker) {
   mymap.setView(marker.getLatLng(), zoomLevel);
 }
-
