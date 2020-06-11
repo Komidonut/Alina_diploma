@@ -13,7 +13,12 @@
       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
       crossorigin=""
     />
-
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500;700;900&family=Montserrat:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS stylesheet -->
     <link rel="stylesheet" type="text/css" href="styles.css" />
 
     <!-- Leaflet JS -->
@@ -26,6 +31,14 @@
 
   <body>
     <!-- Side card definition and style-->
+    <header id="header">МОЯ ИНТА</header>
+    <!-- <div id="projectInfoWrapper">
+        <ul id ="projectInfo">
+            <li>Проект Поздеевой Алины Олеговны</li>
+            <li>ГМ-07-1</li>
+            <li>Сыктывкарский Колледж Культуры</li>
+        </ul>
+    </div> -->
     <div id="sideCard">
       <!-- Side card close icon -->
 
@@ -36,12 +49,8 @@
           alt="close icon"
           onclick="closeSide()"
         /> -->
-        <img
-          id="markerImage"
-          alt=" image inside sideCard"
-        />
-        <h2 id="markerHeader">
-        </h2>
+        <img id="markerImage" alt=" image inside sideCard" />
+        <h2 id="markerHeader"></h2>
         <source />
         <p id="markerDescription"></p>
       </div>
