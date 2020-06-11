@@ -24,8 +24,10 @@ marker1.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
+      document.getElementById("markerHeader").innerHTML = "Название Маркера 1";
       document.getElementById("markerDescription").innerHTML =
-        "Маркер Первый Маркер Первый Маркер Первый Маркер Первый Маркер Первый ";
+        "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?";
+      document  ``.getElementById("markerImage").src = "img/marker1.jpg";
     }, 200);
     clicked = this.getLatLng();
   }
@@ -37,9 +39,11 @@ marker2.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
+      document.getElementById("markerHeader").innerHTML = "Название Маркера 2";
       document.getElementById("markerDescription").innerHTML =
-        "Маркер 22222222 Маркер 22222222 Маркер 22222222 Маркер 22222222 Маркер 22222222 ";
-    }, 200);
+        "Spicy jalapeno bacon ipsum dolor amet exercitation biltong t-bone non pork deserunt. Commodo consectetur enim officia nulla dolore. Pork chop aliqua aute officia. Sint tempor drumstick ribeye burgdoggen, non aliqua laboris tenderloin officia spare ribs corned beef ex pork belly. Qui ball tip fatback, ham velit reprehenderit et ea swine picanha. Swine irure chislic elit, eiusmod ham hock nisi landjaeger.";
+      document.getElementById("markerImage").src = "img/marker2.jpg";
+    }, 100);
     clicked = this.getLatLng();
   }
 });
@@ -60,7 +64,7 @@ function openSide() {
   sideCard.style.transform = "translateX(0%)";
 }
 function closeSide() {
-  sideCard.style.transform = "translateX(-100%)";
+  sideCard.style.transform = "translateX(100%)";
   clicked = "";
 }
 
