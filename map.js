@@ -1,10 +1,12 @@
 var zoomLevel = 14;
 
 //   Задаём геопозицию нужного участка карты
-var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }).setView(
+var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }, ).setView(
   [66.036036, 60.109374],
   zoomLevel
 );
+
+mymap.zoomControl.remove();
 // Вешаем закрытие боковой карточки на клик по любому месту на карте
 mymap.on("click", closeSide);
 
