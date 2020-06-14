@@ -15,7 +15,7 @@
     />
     <!-- fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500;700;900&family=Montserrat:wght@900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500;700;900&family=Montserrat:wght@900&family=Amatic+SC:wght@700&display=swap"
       rel="stylesheet"
     />
     <!-- CSS stylesheet -->
@@ -30,18 +30,18 @@
   </head>
 
   <body>
-
     <!-- Header definition -->
     <header id="header">
       <div id="headerContentWrapper">
         <img src="img/deer.svg" alt="icon of a deer" />
         <h2>МОЯ ИНТА</h2>
+        <div class="headerHidden">
+          <h3>Дипломный проект</h3>
+          <p>Поздеевой Алины Олеговны</p>
+        </div>
       </div>
-      <!-- <iframe frameborder="0" style="-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); overflow: hidden; border: 0; width: 700px; height: 302px;" src="https://rasp.yandex.ru/informers/station/9604003/?size=5&amp;color=6&amp;type=train"></iframe> -->
-      <a href="#" class="headerHidden">Главная</a>
-      <a href="#" class="headerHidden">Контакты</a>
+      <!-- <iframe frameborder="0" styl-ce="-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); overflow: hidden; border: 0; width: 700px; height: 302px;" src="https://rasp.yandex.ru/informers/station/9604003/?size=5&amp;color=6&amp;type=train"></iframe> -->
     </header>
-    
     <!-- Side card definition and style-->
     <div id="sideCard">
       <!-- Side card close icon -->
@@ -53,9 +53,11 @@
           alt="close icon"
           onclick="closeSide()"
         /> -->
-        <img id="markerImage" alt=" image inside sideCard"/>
+        <img id="markerImage" alt=" image inside sideCard" />
         <!-- <button id = "markerButtonArrowLeft" type = "button" onclick="changeTime()"></button> -->
-        <button id = "markerButton" type = "button" onclick="changeTime()"></button>
+        <div id="markerButtonWrapper">
+          <a id="markerButton" type="a" onclick="changeTime()"></a>
+        </div>
         <h2 id="markerHeader"></h2>
         <source />
         <p id="markerDescription"></p>

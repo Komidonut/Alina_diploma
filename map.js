@@ -4,25 +4,28 @@ var zoomLevel = 14;
 var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }, ).setView(
   [66.036036, 60.109374],
   zoomLevel
-);
-
-mymap.zoomControl.remove();
-// Вешаем закрытие боковой карточки на клик по любому месту на карте
-mymap.on("click", closeSide);
-
-// Расставляем маркеры
-var marker1 = L.marker([66.032838, 60.088255]).addTo(mymap);
-var marker2 = L.marker([66.030559, 60.093376]).addTo(mymap);
-
-// Укорачиваем вызов нужного элемента
-var sideCard = document.getElementById("sideCard");
-var markerHeader = document.getElementById("markerHeader");
-var markerDescription = document.getElementById("markerDescription");
-var markerImage = document.getElementById("markerImage");
-var markerButton = document.getElementById ("markerButton");
+  );
+  
+  mymap.zoomControl.remove();
+  // Вешаем закрытие боковой карточки на клик по любому месту на карте
+  mymap.on("click", closeSide);
+  
+  // Расставляем маркеры
+  var marker1 = L.marker([66.032838, 60.088255]).addTo(mymap);
+  var marker2 = L.marker([66.030559, 60.093376]).addTo(mymap);
+  
+  // Укорачиваем вызов нужного элемента
+  var mapid = document.getElementById("mapid"); 
+  var sideCard = document.getElementById("sideCard");
+  var markerHeader = document.getElementById("markerHeader");
+  var markerDescription = document.getElementById("markerDescription");
+  var markerImage = document.getElementById("markerImage");
+  var markerButtonWrapper = document.getElementById ("markerButtonWrapper");
+  var markerButton = document.getElementById ("markerButton");
 
 var images = [];
-var buttonLabel = ["В прошлое", "В настоящее"]
+var buttonLabel = ["⟵ В прошлое", "В настоящее ⟶"];
+var buttonAlignment = ["flex-start","flex-end"];
 var timeState = 1;
 var isActive = document.getElementsByClassName("active");
 var clicked = "";
@@ -103,6 +106,18 @@ function clickZoom(marker) {
 
 function changeTime() {
   timeState = (timeState+1)%2;
+  if (timeState === 1) {
+    sideCard.style.removeProperty("right");
+    sideCard.classList.add("sideCardOld");
+    markerImage.classList.add("markerImageOld");
+    sideCard.style.left = "0px";
+  } else {
+    sideCard.style.removeProperty("left");
+    sideCard.classList.remove("sideCardOld");
+    markerImage.classList.remove("markerImageOld");
+    sideCard.style.right = "0px";
+  }
+  markerButtonWrapper.style.justifyContent=buttonAlignment[timeState]; 
   markerButton.innerHTML=buttonLabel[timeState];
   markerImage.src = images[timeState];
 }
