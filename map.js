@@ -101,6 +101,7 @@ function closeSide() {
   sideCard.style.transform = "translateX(100%)";
   clicked = "";
   sideCard.classList.remove("sideCardOld");
+  markerCloseWrapper.classList.remove("markerCloseWrapperOld");
   markerImage.classList.remove("markerImageOld");
   sideCard.style.backgroundColor = "white";
   markerCloseWrapper.style.backgroundColor = "white";
@@ -127,11 +128,13 @@ function changeTime() {
     sideCard.style.backgroundColor = "rgb(240, 240, 216)";
     markerCloseWrapper.style.backgroundColor = "rgb(240, 240, 216)";
     markerImage.classList.add("markerImageOld");
+    markerCloseWrapper.classList.add("markerCloseWrapperOld");
   } else {
     sideCard.classList.remove("sideCardOld");
     sideCard.style.backgroundColor = "white";
     markerCloseWrapper.style.backgroundColor = "white";
     markerImage.classList.remove("markerImageOld");
+    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
   }
   // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState]; 
   markerButton.innerHTML=buttonLabel[timeState];
