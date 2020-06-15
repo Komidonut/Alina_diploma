@@ -16,7 +16,7 @@ var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }, ).setView(
   
   // Укорачиваем вызов нужного элемента
   var mapid = document.getElementById("mapid"); 
-  var sideCard = document.getElementById("sideCard");
+  var sideCard;
   var markerHeader = document.getElementById("markerHeader");
   var markerDescription = document.getElementById("markerDescription");
   var markerImage = document.getElementById("markerImage");
@@ -40,9 +40,10 @@ marker1.on("click", function () {
     setTimeout(function () {
       timeState = 0;
       images = ["img/marker1.jpg","img/marker1_old.jpg"];
+      document.getElementById
       markerImage.src = images[0];
-      document.getElementById("markerHeader").innerHTML = "Название Маркера 1";
-      document.getElementById("markerDescription").innerHTML =
+      document.querySelector(".markerHeader").innerHTML = "Название Маркера 1";
+      document.querySelector(".markerDescription").innerHTML =
         "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?";
       markerButton.innerHTML= buttonLabel[0];
       
@@ -60,8 +61,8 @@ marker2.on("click", function () {
     setTimeout(function () {
       images = ["img/marker2.jpg","img/marker2_old.jpg"];
       markerImage.src = images[0];
-      document.getElementById("markerHeader").innerHTML = "Название Маркера 2";
-      document.getElementById("markerDescription").innerHTML =
+      document.querySelector(".markerHeader").innerHTML = "Название Маркера 2";
+      document.querySelector(".markerDescription").innerHTML =
       "Spicy jalapeno bacon ipsum dolor amet exercitation biltong t-bone non pork deserunt. Commodo consectetur enim officia nulla dolore. Pork chop aliqua aute officia. Sint tempor drumstick ribeye burgdoggen, non aliqua laboris tenderloin officia spare ribs corned beef ex pork belly. Qui ball tip fatback, ham velit reprehenderit et ea swine picanha. Swine irure chislic elit, eiusmod ham hock nisi landjaeger.";
       markerButton.innerHTML= buttonLabel[0];
     }, 100);
@@ -78,39 +79,41 @@ L.tileLayer(
     reuseTiles: true,
     updateWhenIdle: false,
   }
-).addTo(mymap);
-
-
-
-// Определяем функции
-function openSide() {
-  sideCard.style.transform = "translateX(0%)";
-}
-function closeSide() {
-  sideCard.style.transform = "translateX(100%)";
-  clicked = "";
-}
-
-function opacity() {
-  document.querySelector("#markerWrapper").className = "";
-  window.requestAnimationFrame(function (time) {
+  ).addTo(mymap);
+  
+  
+  
+  // Определяем функции
+  function openSide() {
+    sideCard = document.querySelector("#sideCard-right");
+    sideCard.style.flex = "2";
+  }
+  function closeSide() {
+    sideCard.style.flex = "0";
+    clicked = "";
+  }
+  
+  function opacity() {
+    document.querySelector("#markerWrapper").className = "";
     window.requestAnimationFrame(function (time) {
-      document.querySelector("#markerWrapper").className = "opacity";
-    });
+      window.requestAnimationFrame(function (time) {
+        document.querySelector("#markerWrapper").className = "animation-opacity";
+      });
   });
 }
 
 function clickZoom(marker) {
   mymap.setView(marker.getLatLng(), zoomLevel);
-}
+} п
 
 function changeTime() {
   timeState = (timeState+1)%2;
   if (timeState === 1) {
-    sideCard.style.removeProperty("right");
+    sideCard.style.flex="0";
+    mapid.style.order="1";
+    sideCard.style.flex="2";
     sideCard.classList.add("sideCardOld");
     markerImage.classList.add("markerImageOld");
-    sideCard.style.left = "0px";
   } else {
     sideCard.style.removeProperty("left");
     sideCard.classList.remove("sideCardOld");

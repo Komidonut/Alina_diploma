@@ -35,36 +35,58 @@
       <div id="headerContentWrapper">
         <img src="img/deer.svg" alt="icon of a deer" />
         <h2>МОЯ ИНТА</h2>
-        <div class="headerHidden">
-          <h3>Дипломный проект</h3>
-          <p>Поздеевой Алины Олеговны</p>
-        </div>
       </div>
       <!-- <iframe frameborder="0" styl-ce="-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); overflow: hidden; border: 0; width: 700px; height: 302px;" src="https://rasp.yandex.ru/informers/station/9604003/?size=5&amp;color=6&amp;type=train"></iframe> -->
     </header>
-    <!-- Side card definition and style-->
-    <div id="sideCard">
-      <!-- Side card close icon -->
+    
+    <div id="flexContainer">
 
-      <div id="markerWrapper">
-        <!-- <img
+
+      <div class="sideCard sideCard-left">
+        <!-- Side card close icon -->
+        <div class="markerWrapper">
+          <!-- <img
           id="closeIcon"
           src="img/close.svg"
           alt="close icon"
           onclick="closeSide()"
-        /> -->
-        <img id="markerImage" alt=" image inside sideCard" />
-        <!-- <button id = "markerButtonArrowLeft" type = "button" onclick="changeTime()"></button> -->
-        <div id="markerButtonWrapper">
-          <a id="markerButton" type="a" onclick="changeTime()"></a>
+          /> -->
+          <img class="markerImage" alt=" image inside sideCard"></div> />
+          <!-- <button id = "markerButtonArrowLeft" type = "button" onclick="changeTime()"></button> -->
+          <div class="markerButtonWrapper">
+            <a class="markerButton" type="a" onclick="changeTime()"></a>
+          </div>
+          <h2 class="markerHeader"></h2>
+          <source />
+          <p class="markerDescription"></p>
         </div>
-        <h2 id="markerHeader"></h2>
-        <source />
-        <p id="markerDescription"></p>
       </div>
+
+
+      <div id="mapid"></div>
+      
+
+      <div class="sideCard sideCard-right">
+        <!-- Side card close icon -->
+        <div class="markerWrapper">
+          <!-- <img
+          id="closeIcon"
+          src="img/close.svg"
+          alt="close icon"
+          onclick="closeSide()"
+          /> -->
+          <img class="markerImage" alt=" image inside sideCard"></div> />
+          <div class="markerButtonWrapper">
+            <a class="markerButton" type="a" onclick="changeTime()"></a>
+          </div>
+          <h2 class="markerHeader"></h2>
+          <source />
+          <p class="markerDescription"></p>
+        </div>
+      </div>
+
+      <!-- Создаём элемент карты -->
+      <script src="map.js"></script>
     </div>
-    <!-- Создаём элемент карты -->
-    <div id="mapid"></div>
-    <script src="map.js"></script>
   </body>
 </html>
