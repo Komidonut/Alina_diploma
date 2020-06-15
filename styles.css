@@ -180,8 +180,8 @@ table {
   width: 30em;
   background-color: white;
   box-shadow: -10px 0px 10px hsla(0, 0%, 0%, 0.1);
-  overflow-y: auto;
-  transition: all 0.5s ease-in-out;
+ overflow-y: scroll;
+  transition: all 0.5s ease-out;
   transform: translateX(100%);
 }
 
@@ -191,7 +191,6 @@ table {
 .sideCardOld {
   box-sizing: border-box;
   box-shadow: -20px 0px 10px hsla(0, 0%, 0%, 0.2);
-  background-color: rgb(241, 241, 135);
   border-left: solid 4px rgb(65, 64, 62);
   border-bottom: 0;
   border-top-left-radius: 5px 125px;
@@ -201,23 +200,45 @@ table {
 }
 
 #markerCloseWrapper {
-  position: absolute;
-  margin-top: 3em;
-  height: 2em;
+  position: sticky;
+  top: 0em;
+  line-height: 5em;
   text-align: center;
   width: 100%;
+  background-color: white;
 }
 #markerClose {
-  height: 100%;
+  vertical-align: middle;
   font-family: "Amatic SC", cursive;
   font-size: 3em;
   color: black;
-  transition: 0.3s all ease-out;
-  text-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.4);
+
 }
 #markerClose:hover {
+  text-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.4);
+}
+#markerClose:active {
   text-shadow: 0px 0px 0px hsla(0, 0%, 0%, 1);
 }
+
+#markerImage {
+  display: block;
+  width: 100%;
+  height: 10 em;
+  /* margin-top: 0.3em; */
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2);
+}
+.markerImageOld {
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  border-top: 2px solid rgb(65, 64, 62);
+  border-bottom: 2px solid rgb(65, 64, 62);
+  border-top-right-radius: 225px 15px;
+  border-bottom-left-radius: 225px 15px;
+}
+
 
 #markerHeader {
   color: rgb(65, 64, 62);
@@ -228,7 +249,10 @@ table {
   margin-left: auto;
   margin-right: auto;
   font-size: 2em;
+  text-align: center;
 }
+
+
 
 #markerDescriptionWrapper {
   margin: 2em auto;
@@ -258,32 +282,6 @@ table {
   animation-timing-function: ease-in;
 }
 
-#markerImage {
-  display: block;
-  width: 100%;
-  height: 10 em;
-  margin-top: 4em;
-  margin-left: auto;
-  margin-right: auto;
-  /* border-bottom: 5px solid; */
-  /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
-  /* border-top-left-radius: 10px 255px; */
-  /* border-bottom-right-radius: 225px 15px; */
-  /* border-bottom-left-radius: 10px 255px; */
-  /* box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2);; */
-}
-.markerImageOld {
-  box-sizing: border-box;
-  transition: all 0.3s ease-out;
-  border-top: 2px solid rgb(65, 64, 62);
-  border-bottom: 2px solid rgb(65, 64, 62);
-  /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
-  border-top-right-radius: 225px 15px;
-  border-bottom-left-radius: 225px 15px;
-  /* border-bottom-left-radius: 10px 255px; */
-  /* box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2); */
-}
-
 #markerButtonWrapper {
   display: flex;
   width: 80%;
@@ -298,15 +296,11 @@ table {
   font-weight: 700;
   font-size: 1.4em;
   transition: all 0.3s ease-out;
-  text-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.3);
 }
 #markerButton:hover {
+  text-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.3);
+}
+#markerButton:active {
   text-shadow: 0px 0px 0px hsla(0, 0%, 0%, 1);
 }
 
-#closeIcon {
-  display: block;
-  width: 1em;
-  align-self: flex-end;
-  margin-inline-end: 1em;
-}

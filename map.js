@@ -22,6 +22,7 @@ var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }, ).setView(
   var markerImage = document.getElementById("markerImage");
   var markerButtonWrapper = document.getElementById ("markerButtonWrapper");
   var markerButton = document.getElementById ("markerButton");
+  var markerCloseWrapper = document.getElementById ("markerCloseWrapper");
 
   
 var images = [];
@@ -102,6 +103,7 @@ function closeSide() {
   sideCard.classList.remove("sideCardOld");
   markerImage.classList.remove("markerImageOld");
   sideCard.style.backgroundColor = "white";
+  markerCloseWrapper.style.backgroundColor = "white";
 }
 
 function opacity() {
@@ -123,10 +125,12 @@ function changeTime() {
   if (timeState === 1) {
     sideCard.classList.add("sideCardOld");
     sideCard.style.backgroundColor = "rgb(240, 240, 216)";
+    markerCloseWrapper.style.backgroundColor = "rgb(240, 240, 216)";
     markerImage.classList.add("markerImageOld");
   } else {
     sideCard.classList.remove("sideCardOld");
     sideCard.style.backgroundColor = "white";
+    markerCloseWrapper.style.backgroundColor = "white";
     markerImage.classList.remove("markerImageOld");
   }
   // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState]; 
