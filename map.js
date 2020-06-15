@@ -23,9 +23,11 @@ var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }, ).setView(
   var markerButtonWrapper = document.getElementById ("markerButtonWrapper");
   var markerButton = document.getElementById ("markerButton");
 
+  
 var images = [];
 var buttonLabel = ["⟵ В прошлое", "В настоящее ⟶"];
 var buttonAlignment = ["flex-start","flex-end"];
+var headerFontFamily = ["", ""]
 var timeState = 1;
 var isActive = document.getElementsByClassName("active");
 var clicked = "";
@@ -34,6 +36,9 @@ var clicked = "";
 // Вешаем открытие боковой карточки с нужным содержанием на маркеры.
 marker1.on("click", function () {
   if (clicked !== this.getLatLng()) {
+    sideCard.classList.remove("sideCardOld");
+    markerImage.classList.remove("markerImageOld");
+    sideCard.style.backgroundColor = "white";
     opacity();
     clickZoom(this);
     openSide();
@@ -41,18 +46,21 @@ marker1.on("click", function () {
       timeState = 0;
       images = ["img/marker1.jpg","img/marker1_old.jpg"];
       markerImage.src = images[0];
-      document.getElementById("markerHeader").innerHTML = "Название Маркера 1";
-      document.getElementById("markerDescription").innerHTML =
+      markerHeader.innerHTML = "Название Маркера 1";
+      markerDescription.innerHTML =
         "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?";
       markerButton.innerHTML= buttonLabel[0];
       
-    }, 200);
+    }, 100);
     clicked = this.getLatLng();
   }
 });
 
 marker2.on("click", function () {
   if (clicked !== this.getLatLng()) {
+    sideCard.classList.remove("sideCardOld");
+    markerImage.classList.remove("markerImageOld");
+    sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -60,8 +68,8 @@ marker2.on("click", function () {
     setTimeout(function () {
       images = ["img/marker2.jpg","img/marker2_old.jpg"];
       markerImage.src = images[0];
-      document.getElementById("markerHeader").innerHTML = "Название Маркера 2";
-      document.getElementById("markerDescription").innerHTML =
+      markerHeader.innerHTML = "Название Маркера 2";
+      markerDescription.innerHTML =
       "Spicy jalapeno bacon ipsum dolor amet exercitation biltong t-bone non pork deserunt. Commodo consectetur enim officia nulla dolore. Pork chop aliqua aute officia. Sint tempor drumstick ribeye burgdoggen, non aliqua laboris tenderloin officia spare ribs corned beef ex pork belly. Qui ball tip fatback, ham velit reprehenderit et ea swine picanha. Swine irure chislic elit, eiusmod ham hock nisi landjaeger.";
       markerButton.innerHTML= buttonLabel[0];
     }, 100);
@@ -89,6 +97,9 @@ function openSide() {
 function closeSide() {
   sideCard.style.transform = "translateX(100%)";
   clicked = "";
+  sideCard.classList.remove("sideCardOld");
+  markerImage.classList.remove("markerImageOld");
+  sideCard.style.backgroundColor = "white";
 }
 
 function opacity() {
@@ -106,16 +117,15 @@ function clickZoom(marker) {
 
 function changeTime() {
   timeState = (timeState+1)%2;
+  // opacity();
   if (timeState === 1) {
-    sideCard.style.removeProperty("right");
     sideCard.classList.add("sideCardOld");
+    sideCard.style.backgroundColor = "rgb(240, 240, 216)";
     markerImage.classList.add("markerImageOld");
-    sideCard.style.left = "0px";
   } else {
-    sideCard.style.removeProperty("left");
     sideCard.classList.remove("sideCardOld");
+    sideCard.style.backgroundColor = "white";
     markerImage.classList.remove("markerImageOld");
-    sideCard.style.right = "0px";
   }
   markerButtonWrapper.style.justifyContent=buttonAlignment[timeState]; 
   markerButton.innerHTML=buttonLabel[timeState];

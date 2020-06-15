@@ -185,8 +185,8 @@ table {
   color: black;
   /* color: rgb(36, 76, 129); */
   /* text-shadow:  0em 0.025em 2px rgba(0,0,0, .3); */
-  font-weight: bolder;
   font-size: 2em;
+  font-weight: bolder;
   vertical-align: baseline;
 }
 
@@ -196,25 +196,31 @@ table {
 }
 
 #sideCard {
-  box-sizing: inline-box;
+  box-sizing: border-box;
   position: fixed;
   z-index: 10000;
   top: 0;
-  float: right;
+  right: 0px;
   height: 100%;
   width: 30em;
   background-color: white;
-  /* box-shadow: -20px 0px 20px hsla(0, 0% 0%, 0.2); */
   overflow-x: hidden;
   overflow-y: auto;
   transition: all 0.5s;
-  transform: translateX(500%);
+  transform: translateX(100%);
+}
+
+#sideCard::-webkit-scrollbar {
+  display: none;
 }
 .sideCardOld {
+  box-sizing: border-box;
+  box-shadow: -20px 0px 10px hsla(0, 0%, 0%, 0.2);
   background-color: rgb(241, 241, 135);
-  border: solid 2px;
-  border-top-right-radius: 5px 125px;
-  border-bottom-right-radius: 5px 125px;
+  border: solid 7px ;
+  border-bottom: 0;
+  border-top-left-radius: 5px 125px;
+  border-bottom-left-radius: 5px 125px;
   /* border-radius: 255px 15pxborder-top-left-radius: 255px 15px; 225px 15px/15px 225px 15px 255px; */
   /* box-shadow: -20px 0px 20px hsla(0, 0%, 0%, 0.2); */
 }
@@ -251,7 +257,7 @@ table {
 
 .opacity {
   animation-name: opacity;
-  animation-duration: 1s;
+  animation-duration: 0.7s;
   animation-timing-function: ease-in;
 }
 
@@ -271,7 +277,7 @@ table {
   border-bottom: 5px solid;
   /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
   /* border-top-left-radius: 10px 255px; */
-  /* border-bottom-left-radius: 225px 15px; */
+  border-bottom-left-radius: 225px 15px;
   /* border-bottom-left-radius: 10px 255px; */
   box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2);
 }
