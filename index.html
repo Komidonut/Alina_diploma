@@ -30,37 +30,33 @@
   </head>
 
   <body>
-    <!-- Header definition -->
+    <!-- Header defitext-overflow: ellipsis;nition -->
     <header id="header">
       <div id="headerContentWrapper">
         <img src="img/deer.svg" alt="icon of a deer" />
-        <h2 >МОЯ ИНТА</h2>
-        <div class="headerHidden">
-          <h3>Дипломный проект</h3>
-          <p>Поздеевой Алины Олеговны</p>
-        </div>
+        <h2>ИНТА</h2>
       </div>
       <!-- <iframe frameborder="0" styl-ce="-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); overflow: hidden; border: 0; width: 700px; height: 302px;" src="https://rasp.yandex.ru/informers/station/9604003/?size=5&amp;color=6&amp;type=train"></iframe> -->
     </header>
     <!-- Side card definition and style-->
     <div id="sideCard">
       <!-- Side card close icon -->
-
+      <div id="markerCloseWrapper">
+        <span id = "markerClose" alt="closing icon. Closes sideCard" onclick="closeSide()">X</span>
+      </div>
       <div id="markerWrapper">
-        <!-- <img
-          id="closeIcon"
-          src="img/close.svg"
-          alt="close icon"
-          onclick="closeSide()"
-        /> -->
         <img id="markerImage" alt=" image inside sideCard" />
         <!-- <button id = "markerButtonArrowLeft" type = "button" onclick="changeTime()"></button> -->
-        <div id="markerButtonWrapper">
-          <a id="markerButton" type="a" onclick="changeTime()"></a>
+        <div id="markerContent">
+          <div id="markerButtonWrapper">
+            <a id="markerButton" type="a" onclick="changeTime()"></a>
+          </div>
+          <h2 id="markerHeader"></h2>
+          <source />
+          <div id="markerDescriptionWrapper">
+            <p id="markerDescription"></p>
+          </div>
         </div>
-        <h2 id="markerHeader"></h2>
-        <source />
-        <p id="markerDescription"></p>
       </div>
     </div>
     <!-- Создаём элемент карты -->

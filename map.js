@@ -47,6 +47,8 @@ marker1.on("click", function () {
       images = ["img/marker1.jpg","img/marker1_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Название Маркера 1";
+
+      markerDescription.style.textOverflow = "ellipsis;"
       markerDescription.innerHTML =
         "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?";
       markerButton.innerHTML= buttonLabel[0];
@@ -127,7 +129,7 @@ function changeTime() {
     sideCard.style.backgroundColor = "white";
     markerImage.classList.remove("markerImageOld");
   }
-  markerButtonWrapper.style.justifyContent=buttonAlignment[timeState]; 
+  // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState]; 
   markerButton.innerHTML=buttonLabel[timeState];
   markerImage.src = images[timeState];
 }

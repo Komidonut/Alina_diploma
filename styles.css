@@ -129,12 +129,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-#projectInfoWrapper {
-  position: fixed;
-  z-index: 10001;
-  bottom: 2em;
-  left: 4em;
-}
 
 #header {
   /* background-color: white; */
@@ -149,28 +143,6 @@ table {
 #headerContentWrapper {
   height: 4em;
   display: inline-block;
-}
-/* #header a {
-  text-decoration: none;
-  color: black;
-  margin-left: 0.5em;
-  font-size: 1.5em;
-  vertical-align: baseline;
-}
-
-#header a:hover {
-  text-decoration: underline;
-} */
-
-.headerHidden {
-  display: none;
-}
-
-#header:hover .headerHidden {
-  animation-name: opacity;
-  animation-duration: 1s;
-  animation-timing-function: ease-in;
-  display: block;
 }
 
 #headerContentWrapper img {
@@ -189,6 +161,9 @@ table {
   font-weight: bolder;
   vertical-align: baseline;
 }
+#headerContentWrapper h2:hover {
+  font-family: "Amatic SC", cursive;
+}
 
 #mapid {
   width: 100%;
@@ -204,9 +179,9 @@ table {
   height: 100%;
   width: 30em;
   background-color: white;
-  overflow-x: hidden;
+  box-shadow: -10px 0px 10px hsla(0, 0%, 0%, 0.1);
   overflow-y: auto;
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
   transform: translateX(100%);
 }
 
@@ -217,12 +192,31 @@ table {
   box-sizing: border-box;
   box-shadow: -20px 0px 10px hsla(0, 0%, 0%, 0.2);
   background-color: rgb(241, 241, 135);
-  border: solid 7px ;
+  border-left: solid 4px rgb(65, 64, 62);
   border-bottom: 0;
   border-top-left-radius: 5px 125px;
   border-bottom-left-radius: 5px 125px;
   /* border-radius: 255px 15pxborder-top-left-radius: 255px 15px; 225px 15px/15px 225px 15px 255px; */
   /* box-shadow: -20px 0px 20px hsla(0, 0%, 0%, 0.2); */
+}
+
+#markerCloseWrapper {
+  position: absolute;
+  margin-top: 3em;
+  height: 2em;
+  text-align: center;
+  width: 100%;
+}
+#markerClose {
+  height: 100%;
+  font-family: "Amatic SC", cursive;
+  font-size: 3em;
+  color: black;
+  transition: 0.3s all ease-out;
+  text-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.4);
+}
+#markerClose:hover {
+  text-shadow: 0px 0px 0px hsla(0, 0%, 0%, 1);
 }
 
 #markerHeader {
@@ -236,11 +230,14 @@ table {
   font-size: 2em;
 }
 
+#markerDescriptionWrapper {
+  margin: 2em auto;
+  width: 80%;
+}
+
 #markerDescription {
   color: rgb(65, 64, 62);
-  display: block;
-  width: 80%;
-  margin: 2em auto;
+  font-size: 0.8em;
 }
 
 @keyframes opacity {
@@ -264,6 +261,8 @@ table {
 #markerImage {
   display: block;
   width: 100%;
+  height: 10 em;
+  margin-top: 4em;
   margin-left: auto;
   margin-right: auto;
   /* border-bottom: 5px solid; */
@@ -274,12 +273,15 @@ table {
   /* box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2);; */
 }
 .markerImageOld {
-  border-bottom: 5px solid;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  border-top: 2px solid rgb(65, 64, 62);
+  border-bottom: 2px solid rgb(65, 64, 62);
   /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
-  /* border-top-left-radius: 10px 255px; */
+  border-top-right-radius: 225px 15px;
   border-bottom-left-radius: 225px 15px;
   /* border-bottom-left-radius: 10px 255px; */
-  box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2);
+  /* box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2); */
 }
 
 #markerButtonWrapper {
@@ -287,21 +289,19 @@ table {
   width: 80%;
   margin: 2em auto;
   align-items: stretch;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
-
-
 #markerButton {
+  color: black;
   font-family: "Amatic SC", cursive;
   font-weight: 700;
   font-size: 1.4em;
-  opacity: 0.2;
   transition: all 0.3s ease-out;
+  text-shadow: 3px 3px 5px hsla(0, 0%, 0%, 0.3);
 }
-
 #markerButton:hover {
-  opacity: 1;
+  text-shadow: 0px 0px 0px hsla(0, 0%, 0%, 1);
 }
 
 #closeIcon {
