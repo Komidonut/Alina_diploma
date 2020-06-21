@@ -190,7 +190,7 @@ margin-left: 20em;
   }
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1900px) {
   .aboutColumnContainer h1{
     font-family: "Amatic SC", cursive;
     font-weight: 400;
