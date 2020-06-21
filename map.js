@@ -1,8 +1,8 @@
-var zoomLevel = 14;
+var zoomLevel = 15;
 
 //   Задаём геопозицию нужного участка карты
 var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }).setView(
-  [66.036036, 60.109374],
+  [66.039790, 60.131689],
   zoomLevel
 );
 
@@ -11,13 +11,58 @@ mymap.zoomControl.remove();
 // Вешаем закрытие боковой карточки на клик по любому месту на карте
 mymap.on("click", closeSide);
 
+//Устанавливаем связь между маркерами и их иконками
+var marker1Icon = L.icon({
+  iconUrl: 'img/icons/marker1Vavil.svg',
+
+  iconSize:     [38, 95], // size of the icon
+  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+  // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var marker2Aero = L.icon({
+  iconUrl: 'img/icons/marker2Aero.svg',
+
+  iconSize:     [38, 95], // size of the icon
+  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+  // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var marker3DomFizkult = L.icon({
+  iconUrl: 'img/icons/marker3DomFizkult.svg',
+
+  iconSize:     [38, 95], // size of the icon
+  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+  // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var marker4Klyatva = L.icon({
+  iconUrl: 'img/icons/marker4Klyatva.svg',
+
+  iconSize:     [38, 95], // size of the icon
+  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+  // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var marker5Lenin = L.icon({
+  iconUrl: 'img/icons/marker5Lenin.svg',
+
+  iconSize:     [38, 95], // size of the icon
+  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+  // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+var marker6DomKult = L.icon({
+  iconUrl: 'img/icons/marker6DomKult.svg',
+
+  iconSize:     [38, 95], // size of the icon
+  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+  // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
 // Расставляем маркеры
-var marker1Vavil = L.marker([66.041081, 60.135448]).addTo(mymap);
-var marker2Aero = L.marker([66.053127, 60.11825]).addTo(mymap);
-var marker3DomFizkult = L.marker([66.040552, 60.139855]).addTo(mymap);
-var marker4Klyatva = L.marker([66.040479, 60.131207]).addTo(mymap);
-var marker5Lenin = L.marker([66.037283, 60.115107]).addTo(mymap);
-var marker6DomKult = L.marker([66.040217, 60.149658]).addTo(mymap);
+var marker1Vavil = L.marker([66.041081, 60.135448], {icon: marker1Icon}).addTo(mymap);
+var marker2Aero = L.marker([66.053127, 60.11825], {icon: marker2Aero}).addTo(mymap);
+var marker3DomFizkult = L.marker([66.040552, 60.139855], {icon: marker3DomFizkult}).addTo(mymap);
+var marker4Klyatva = L.marker([66.040479, 60.131207], {icon: marker4Klyatva}).addTo(mymap);
+var marker5Lenin = L.marker([66.037283, 60.115107], {icon: marker5Lenin}).addTo(mymap);
+var marker6DomKult = L.marker([66.040217, 60.149658], {icon: marker6DomKult}).addTo(mymap);
 
 // Укорачиваем вызов нужного элемента
 var mapid = document.getElementById("mapid");
@@ -182,6 +227,7 @@ function openSide() {
   sideCard.style.transform = "translateX(0%)";
 }
 function closeSide() {
+  
   sideCard.style.transform = "translateX(100%)";
   clicked = "";
   sideCard.classList.remove("sideCardOld");
@@ -201,7 +247,7 @@ function opacity() {
 }
 
 function clickZoom(marker) {
-  mymap.setView(marker.getLatLng(), zoomLevel);
+  mymap.setView(marker.getLatLng(), zoomLevel+3);
 }
 
 function changeTime() {
