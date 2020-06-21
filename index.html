@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Document</title>
+    <title>Моя Инта. Краеведческий альбом.</title>
 
     <!-- Leaflet stylesheet -->
     <link
@@ -15,11 +15,11 @@
     />
     <!-- fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500;700;900&family=Montserrat:wght@900&family=Amatic+SC:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;500;700;900&family=Amatic+SC:wght@700&display=swap"
       rel="stylesheet"
     />
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
 
     <!-- Leaflet JS -->
     <script
@@ -33,8 +33,10 @@
     <!-- Header defitext-overflow: ellipsis;nition -->
     <header id="header">
       <div id="headerContentWrapper">
-        <img src="img/deer.svg" alt="icon of a deer" />
-        <h2>ИНТА</h2>
+        <a href="about.html">
+          <img src="img/deer.svg" alt="icon of a deer" />
+          <h2>ИНТА</h2>
+        </a>
       </div>
       <!-- <iframe frameborder="0" styl-ce="-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); overflow: hidden; border: 0; width: 700px; height: 302px;" src="https://rasp.yandex.ru/informers/station/9604003/?size=5&amp;color=6&amp;type=train"></iframe> -->
     </header>
@@ -42,11 +44,18 @@
     <div id="sideCard">
       <!-- Side card close icon -->
       <div id="markerCloseWrapper">
-        <span id = "markerClose" alt="closing icon. Closes sideCard" onclick="closeSide()">X</span>
+        <span
+          id="markerClose"
+          alt="closing icon. Closes sideCard"
+          onclick="closeSide()"
+          >X</span
+        >
       </div>
       <div id="markerWrapper">
-        <img id="markerImage" alt=" image inside sideCard" />
-        <!-- <button id = "markerButtonArrowLeft" type = "button" onclick="changeTime()"></button> -->
+        <div id="markerImageWrapper">
+          <img id="markerImage" alt=" image inside sideCard" />
+          <!-- <button id = "markerButtonArrowLeft" type = "button" onclick="changeTime()"></button> -->
+        </div>
         <div id="markerContent">
           <div id="markerButtonWrapper">
             <a id="markerButton" type="a" onclick="changeTime()"></a>

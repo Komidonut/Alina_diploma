@@ -1,41 +1,44 @@
 var zoomLevel = 14;
 
 //   Задаём геопозицию нужного участка карты
-var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }, ).setView(
+var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }).setView(
   [66.036036, 60.109374],
   zoomLevel
-  );
-  
-  mymap.zoomControl.remove();
-  // Вешаем закрытие боковой карточки на клик по любому месту на карте
-  mymap.on("click", closeSide);
-  
-  // Расставляем маркеры
-  var marker1 = L.marker([66.032838, 60.088255]).addTo(mymap);
-  var marker2 = L.marker([66.030559, 60.093376]).addTo(mymap);
-  
-  // Укорачиваем вызов нужного элемента
-  var mapid = document.getElementById("mapid"); 
-  var sideCard = document.getElementById("sideCard");
-  var markerHeader = document.getElementById("markerHeader");
-  var markerDescription = document.getElementById("markerDescription");
-  var markerImage = document.getElementById("markerImage");
-  var markerButtonWrapper = document.getElementById ("markerButtonWrapper");
-  var markerButton = document.getElementById ("markerButton");
-  var markerCloseWrapper = document.getElementById ("markerCloseWrapper");
+);
 
-  
+mymap.zoomControl.remove();
+
+// Вешаем закрытие боковой карточки на клик по любому месту на карте
+mymap.on("click", closeSide);
+
+// Расставляем маркеры
+var marker1Vavil = L.marker([66.041081, 60.135448]).addTo(mymap);
+var marker2Aero = L.marker([66.053127, 60.11825]).addTo(mymap);
+var marker3DomFizkult = L.marker([66.040552, 60.139855]).addTo(mymap);
+var marker4Klyatva = L.marker([66.040479, 60.131207]).addTo(mymap);
+var marker5Lenin = L.marker([66.037283, 60.115107]).addTo(mymap);
+var marker6DomKult = L.marker([66.040217, 60.149658]).addTo(mymap);
+
+// Укорачиваем вызов нужного элемента
+var mapid = document.getElementById("mapid");
+var sideCard = document.getElementById("sideCard");
+var markerHeader = document.getElementById("markerHeader");
+var markerDescription = document.getElementById("markerDescription");
+var markerImage = document.getElementById("markerImage");
+var markerButtonWrapper = document.getElementById("markerButtonWrapper");
+var markerButton = document.getElementById("markerButton");
+var markerCloseWrapper = document.getElementById("markerCloseWrapper");
+
 var images = [];
 var buttonLabel = ["⟵ В прошлое", "В настоящее ⟶"];
-var buttonAlignment = ["flex-start","flex-end"];
-var headerFontFamily = ["", ""]
+var buttonAlignment = ["flex-start", "flex-end"];
+var headerFontFamily = ["", ""];
 var timeState = 1;
 var isActive = document.getElementsByClassName("active");
 var clicked = "";
 
-
 // Вешаем открытие боковой карточки с нужным содержанием на маркеры.
-marker1.on("click", function () {
+marker1Vavil.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImage.classList.remove("markerImageOld");
@@ -45,21 +48,20 @@ marker1.on("click", function () {
     openSide();
     setTimeout(function () {
       timeState = 0;
-      images = ["img/marker1.jpg","img/marker1_old.jpg"];
+      images = ["img/marker1Vavil.png", "img/marker1Vavil_old.png"];
       markerImage.src = images[0];
-      markerHeader.innerHTML = "Название Маркера 1";
+      markerHeader.innerHTML = "Вавилонская Башня";
 
-      markerDescription.style.textOverflow = "ellipsis;"
+      markerDescription.style.textOverflow = "ellipsis;";
       markerDescription.innerHTML =
-        "Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?";
-      markerButton.innerHTML= buttonLabel[0];
-      
+        "<p>Трудно представить эмблему Инты, как и сам северный город без <strong>водонапорной башни</strong>. Она находится на артезианской скважине и строилась для водоснабжения населенного пункта. Башня была возведена за два строительных сезона, в 1953 – 1954 годах. В работе участвовали <em>11 с половиной тысяч человек</em> – заключенные интинских лагерей. Среди них были русские, украинцы, немцы, евреи, литовцы, эстонцы, венгры. Между собой он называли башню <strong>«вавилонской»</strong>.</p><br><p>Одним из авторов сооружения был швед по национальности – <em>Артур-Густав Тамвелиус</em>. Он же заключённый интинских лагерей, приговорённый по обвинению в шпионаже, а через десятилетия посмертно реабилитированный.</p><br><p>Утилитарную функцию башня утратила. С 2014 года здесь размещена экспозиция «Музея истории политических репрессий».</p><br><p><strong>СПРАВОЧНО</strong>: Общая высота башни со звездой 54,4 метра – это <em>около 20 этажей</em>. Фундамент постройки залегает <em>на глубине 5 метров</em>.</p>";
+      markerButton.innerHTML = buttonLabel[0];
     }, 100);
     clicked = this.getLatLng();
   }
 });
 
-marker2.on("click", function () {
+marker2Aero.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImage.classList.remove("markerImageOld");
@@ -69,12 +71,96 @@ marker2.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker2.jpg","img/marker2_old.jpg"];
+      images = ["img/marker2Aero.png", "img/marker2Aero_old.png"];
       markerImage.src = images[0];
-      markerHeader.innerHTML = "Название Маркера 2";
+      markerHeader.innerHTML = "Аэропорт";
       markerDescription.innerHTML =
-      "Spicy jalapeno bacon ipsum dolor amet exercitation biltong t-bone non pork deserunt. Commodo consectetur enim officia nulla dolore. Pork chop aliqua aute officia. Sint tempor drumstick ribeye burgdoggen, non aliqua laboris tenderloin officia spare ribs corned beef ex pork belly. Qui ball tip fatback, ham velit reprehenderit et ea swine picanha. Swine irure chislic elit, eiusmod ham hock nisi landjaeger.";
-      markerButton.innerHTML= buttonLabel[0];
+        "<p>Первые прямые рейсы из Инты в столицу Коми – Сыктывкар стали выполняться только в 1961 году – двумя самолетами АН-2. В 1963 году в Инту стали летать ИЛ-14 и ЛИ-2. Эти самолёты с момента открытия авиасообщения перевезли за первые десять лет <em>27 тысяч человек</em>. Таким образом, в те годы <strong>каждый</strong> взрослый интинец прибегал к услугам советского аэрофлота.</p><br><p>55 лет назад — 16 июня 1975 года открыта авиалиния Инта – Москва.</p><br><p>В 2013 году, аэропорт получил «второе дыхание» и смог принимать самолёты малой авиации L-410, рассчитанные на 19 пассажиров.</p>";
+      markerButton.innerHTML = buttonLabel[0];
+    }, 100);
+    clicked = this.getLatLng();
+  }
+});
+
+marker3DomFizkult.on("click", function () {
+  if (clicked !== this.getLatLng()) {
+    sideCard.classList.remove("sideCardOld");
+    markerImage.classList.remove("markerImageOld");
+    sideCard.style.backgroundColor = "white";
+    timeState = 0;
+    opacity();
+    clickZoom(this);
+    openSide();
+    setTimeout(function () {
+      images = ["img/marker3DomFizkult.png", "img/marker3DomFizkult_old.png"];
+      markerImage.src = images[0];
+      markerHeader.innerHTML = "Дом физкультурника";
+      markerDescription.innerHTML =
+        "<p>В Инте в 1946 году начала работать детская спортивная школа, а через год, на улице Кирова построен комплекс, состоящий из футбольного поля (в настоящее время стадион детско-юношеской школы «Юность») и спортивного зала с плавательным бассейном. Здание Дома физкультурника было возведено на фундаменте лагерной столовой, в 1947 году. В здании спортзала работал игровой зал, наверху которого размещались трибуны для зрителей. В бассейне использовалась <em>вода из артезианской скважины</em>, подогреваемая бойлером.</p><br><p> Плавательный бассейн в Инте был <strong>первым, построенным в Коми,</strong> на тот момент. Здание спортивного комплекса, называемое в то время «Дом физкультурника», было очень интересным в архитектурном отношении. Его вход, в центре и по бокам, <em>украшали гипсовые статуи спортсменов</em>, подчеркивая основное предназначение здания. А мощный портал <em>поддерживали оштукатуренные деревянные колонны</em>. Фотография сооружения в своё время была напечатана вжурнале «Советский Союз», который предназначался в основном для зарубежных читателей.</p><br><p>Деревянный спорткомплекс сгорел в 1967 году. Позднее, на его месте возвели бассейн для детей «Дельфин».</p>";
+      markerButton.innerHTML = buttonLabel[0];
+    }, 100);
+    clicked = this.getLatLng();
+  }
+});
+
+marker4Klyatva.on("click", function () {
+  if (clicked !== this.getLatLng()) {
+    sideCard.classList.remove("sideCardOld");
+    markerImage.classList.remove("markerImageOld");
+    sideCard.style.backgroundColor = "white";
+    timeState = 0;
+    opacity();
+    clickZoom(this);
+    openSide();
+    setTimeout(function () {
+      images = ["img/marker4Klyatva.png", "img/marker4Klyatva_old.jpg"];
+      markerImage.src = images[0];
+      markerHeader.innerHTML = "Клятва";
+      markerDescription.innerHTML =
+        "<p>Мемориальная композиция в память погибших северян в годы Великой Отечественной войны – «Клятва». Первый камень на месте памятника был заложен <strong>в честь тридцатилетия Победы</strong> – <em>9 мая 1975 года</em>. Высота скульптурной группы составляет <em>3 метра 80 сантиметров</em>, а общая высота памятника – <em>7 метров</em>. Скульптор Ф. Н. Бондарь и архитектор А. Клейн.</p><br><p><strong>Первое</strong> упоминание о памятнике –<em> документ «Об увековечении памяти интинцев, погибших на фронтах Великой Отечественной войны»</em>, от 13 февраля 1970 года. В нём интинские власти просят разрешить за счёт городского бюджета к 50-летию Коми АССР, в 1971 году, соорудить обелиск в память погибших интинцев в годы Великой Отечественной войны. Стоимость памятника тогда оценивалась в немалую сумму –<em>от 10 до 15 тысяч рублей</em>.</p><br><p>В юбилейный для республики год, обелиск построить <strong>не успели</strong>. Мемориал создавался <em>в течение 15 лет</em>. Впоследствии был насыпан холм и установлен постамент. Торжественное открытие памятника, когда были возведены скульптурная группа из двух солдат и два пилона из монолитного железобетона, с закреплённым орденом Отечественной войны, произошло 6 ноября 1977 года.</p><br><p>К 40-летию Победы, 9 мая 1985 года были открыты<em>7 мемориальных плит</em> с фамилиями<em>162 погибших на войне интинцев</em>, а позже добавлены фамилии ещёчетырёх бойцов, не вернувшихся из Афганистана.</p><br><p>Военкоматами Коми АССР в годы войны было призвано <em>152 483 человека</em>, из них <em>54 935</em> – Кожвинским райвоенкоматом. Это <strong>самый большой призыв в республике</strong>, так как территория района включала в себя нынешние Печорский, Интинский, Воркутинский, Вуктыльский, Сосногорский районы. Из общего числа призванных абсолютное большинство составляли <em>заключённые</em> из Печоржелдорлага, Воркутлага, Инталага, Севжелдорлага – на территории Кожвинского района были дислоцированы подразделения этих лагерей.</p>";
+      markerButton.innerHTML = buttonLabel[0];
+    }, 100);
+    clicked = this.getLatLng();
+  }
+});
+
+marker5Lenin.on("click", function () {
+  if (clicked !== this.getLatLng()) {
+    sideCard.classList.remove("sideCardOld");
+    markerImage.classList.remove("markerImageOld");
+    sideCard.style.backgroundColor = "white";
+    timeState = 0;
+    opacity();
+    clickZoom(this);
+    openSide();
+    setTimeout(function () {
+      images = ["img/marker5Lenin.png", "img/marker5Lenin_old.jpg"];
+      markerImage.src = images[0];
+      markerHeader.innerHTML = "Ленин";
+      markerDescription.innerHTML =
+        "<p>Монумент Владимиру Ленину, вначале был открыт <strong>6 ноября 1959 года</strong> в сквере Театральный, между улицами Горной (Кулешова) и Театральной (Халеева), за Домом культуры угольщиков. Фигура Ленина была изготовлена в полный рост <em>из платинированной меди</em>, <em>высотой 3 метра 20 сантиметров</em>. Авторы памятника: московский скульптор Самуил Осипович Махтин и архитектор Владимир Кузьмич Доброноженко.</p><br><p> Известно, что памятники Ленину часто являлись «серийной продукцией» и изготовлялись фабричным способом в Московской области. По данным, приводимым газетой «Московский комсомолец», на 2003 год в России насчитывалось около <em>1 800 памятников</em> Ленину и <em>до 20 000 бюстов</em>. Во многих городах его скульптуры возвышаются на центральных площадях.</p><br><p> Почти через 23 года, 29 сентября 1982 года, Совет Министров Коми АССР постановил присвоить центральной городской площади Инты имя Владимира Ильича Ленина. Долгое время горожане её называли <strong>«новой»</strong>, но тогда она получила другое и уже официальное название: <strong>«Площадь имени В. И. Ленина»</strong>. </p><br><p>Скульптуру В.И. Ленина из сквера за Домом культуры перенесли на новый пьедестал, в центр Инты. Открытие памятника произошло <strong>7 октября 1982 года</strong> – в день Конституции СССР.";
+      markerButton.innerHTML = buttonLabel[0];
+    }, 100);
+    clicked = this.getLatLng();
+  }
+});
+
+marker6DomKult.on("click", function () {
+  if (clicked !== this.getLatLng()) {
+    sideCard.classList.remove("sideCardOld");
+    markerImage.classList.remove("markerImageOld");
+    sideCard.style.backgroundColor = "white";
+    timeState = 0;
+    opacity();
+    clickZoom(this);
+    openSide();
+    setTimeout(function () {
+      images = ["img/marker6DomKult.png", "img/marker6DomKult_old.png"];
+      markerImage.src = images[0];
+      markerHeader.innerHTML = "Дом Культуры";
+      markerDescription.innerHTML =
+        "<p>При Доме культуры шахтеров открыт народный драматический театр, первым руководителем которого был В. С. Миронов. Коллективом поставлено <strong>более 20 спектаклей</strong>.</p><br><p>Первое деревянное одноэтажное здание клуба в Инте построили в 1944 году. В 1952-1953 годах его реконструировали. А окончательный, современный вид Дом культуры шахтёров получил в 1965 году. Убрали колонны, но старый зрительный зал с его художественной лепкой был сохранён полностью.</p><br><p>Здание получило впечавпечатляющий фасад, похожий на <em>гигантский выпуклый телеэкран</em> из стекла и стали, так называемую «линзу». За образец был взят фасад ДК Московского автозавода им. Лихачёва. В России только <strong>два подобных сооружения.</strong></p>";
+      markerButton.innerHTML = buttonLabel[0];
     }, 100);
     clicked = this.getLatLng();
   }
@@ -90,8 +176,6 @@ L.tileLayer(
     updateWhenIdle: false,
   }
 ).addTo(mymap);
-
-
 
 // Определяем функции
 function openSide() {
@@ -121,7 +205,7 @@ function clickZoom(marker) {
 }
 
 function changeTime() {
-  timeState = (timeState+1)%2;
+  timeState = (timeState + 1) % 2;
   // opacity();
   if (timeState === 1) {
     sideCard.classList.add("sideCardOld");
@@ -136,7 +220,7 @@ function changeTime() {
     markerImage.classList.remove("markerImageOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
   }
-  // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState]; 
-  markerButton.innerHTML=buttonLabel[timeState];
+  // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState];
+  markerButton.innerHTML = buttonLabel[timeState];
   markerImage.src = images[timeState];
 }
