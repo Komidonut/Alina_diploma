@@ -11,6 +11,29 @@ mymap.zoomControl.remove();
 // Вешаем закрытие боковой карточки на клик по любому месту на карте
 mymap.on("click", closeSide);
 
+document.addEventListener("mousemove", parallax);
+
+const element = document.querySelector("#clouds");
+
+
+    // Magic happens here
+    function parallax(e) {
+        let _w = window.innerWidth/2;
+        let _h = window.innerHeight/4;
+        let _mouseX = e.clientX;
+        let _mouseY = e.clientY;
+        let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${0 -23 - (_mouseY - _h) * 0.000000001}%`;
+        let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${0 -23 - (_mouseY - _h) * 0.03}%`;
+        let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${0 -23 - (_mouseY - _h) * 0.09}%`;
+        // let _depth4 = `${50 - (_mouseX - _w) * 0.01}% ${130 - (_mouseY - _h) * 0.01}%`;
+        // let _depth5 = `${50 - (_mouseX - _w) * 0.02}% ${130 - (_mouseY - _h) * 0.02}%`;
+        // let _depth6 = `${50 - (_mouseX - _w) * 0.06}% ${130 - (_mouseY - _h) * 0.06}%`;
+        let x = /*${_depth6},${_depth5},${_depth4},*/`${_depth3}, ${_depth2}, ${_depth1}`;
+        console.log(x);
+        element.style.backgroundPosition = x;
+    }
+
+
 //Устанавливаем связь между маркерами и их иконками
 var marker1Icon = L.icon({
   iconUrl: 'img/icons/marker1Vavil.svg',
@@ -93,7 +116,7 @@ marker1Vavil.on("click", function () {
     openSide();
     setTimeout(function () {
       timeState = 0;
-      images = ["img/marker1Vavil.png", "img/marker1Vavil_old.png"];
+      images = ["img/marker1Vavil.jpg", "img/marker1Vavil_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Вавилонская Башня";
 
@@ -116,7 +139,7 @@ marker2Aero.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker2Aero.png", "img/marker2Aero_old.png"];
+      images = ["img/marker2Aero.jpg", "img/marker2Aero_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Аэропорт";
       markerDescription.innerHTML =
@@ -137,7 +160,7 @@ marker3DomFizkult.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker3DomFizkult.png", "img/marker3DomFizkult_old.png"];
+      images = ["img/marker3DomFizkult.jpg", "img/marker3DomFizkult_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Дом физкультурника";
       markerDescription.innerHTML =
@@ -158,7 +181,7 @@ marker4Klyatva.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker4Klyatva.png", "img/marker4Klyatva_old.jpg"];
+      images = ["img/marker4Klyatva.jpg", "img/marker4Klyatva_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Клятва";
       markerDescription.innerHTML =
@@ -179,7 +202,7 @@ marker5Lenin.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker5Lenin.png", "img/marker5Lenin_old.jpg"];
+      images = ["img/marker5Lenin.jpg", "img/marker5Lenin_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Ленин";
       markerDescription.innerHTML =
@@ -200,7 +223,7 @@ marker6DomKult.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker6DomKult.png", "img/marker6DomKult_old.png"];
+      images = ["img/marker6DomKult.jpg", "img/marker6DomKult_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Дом Культуры";
       markerDescription.innerHTML =
