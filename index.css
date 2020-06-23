@@ -130,8 +130,11 @@ table {
     url(img/Clouds/3.png),
     url(img/Clouds/4.png),
     url(img/Clouds/6.png),
+    url(img/Clouds/3.png),
+    url(img/Clouds/4.png),
+    url(img/Clouds/6.png),
     url(img/Clouds/5.png);
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     pointer-events: none;
   
 }
