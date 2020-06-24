@@ -248,26 +248,29 @@ table {
 #markerImageWrapper {
   height: 400px;
   width: 100%;
-}
-#markerImage {
-  top: 0em;
-  height: 100%;
-  /* margin-top: 0.3em; */
-  object-fit: cover;
-  margin-top: 2em;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
   border-bottom: 2px solid rgb(65, 64, 62);
+  background-image: url(img/deer.svg);
+  background-size: 3em;
+  background-repeat: repeat;
+  overflow: hidden;
+}
+
+.markerImageWrapperOld {
+  border-bottom: 2px solid rgb(65, 64, 62);
+  border-bottom-left-radius: 225px 15px;
+  /* box-sizing: border-box; */
+  transition: all 0.3s ease-out;
+}
+
+#markerImage {
+ 
+  height: 100%;
+   margin-left: auto;
+  margin-right: auto;
   /* box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2); */
 }
 
-.markerImageOld {
-  box-sizing: border-box;
-  transition: all 0.3s ease-out;
-  /* border-top: 2px solid rgb(65, 64, 62); */
-  border-bottom: 2px solid rgb(65, 64, 62);
-  border-bottom-left-radius: 225px 15px;
-}
 
 #markerHeader {
   color: rgb(65, 64, 62);
@@ -337,5 +340,12 @@ table {
   bottom: 0;
   margin: auto;
   height: 4em;
+  width: 100%;
+  text-align: center;
+}
+
+#markerScroll {
+  height: 100%;
+  margin: auto;
 }
 

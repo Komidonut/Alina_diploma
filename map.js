@@ -10,13 +10,22 @@ var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }).setView(
 mymap.zoomControl.remove();
 
 // Вешаем закрытие боковой карточки на клик по любому месту на карте
-mymap.on("click", closeSide);
+mymap.on("click", function(e){
+  if (clicked != "") {
+    mymap.flyTo(e.latlng, zoomLevel, {
+      animate: true,
+      duration: 0.4
+    });
+    closeSide();
+  }
+});
 
 // Укорачиваем вызов нужного DOM элемента
 const mapid = document.getElementById("mapid");
 const sideCard = document.getElementById("sideCard");
 const markerHeader = document.getElementById("markerHeader");
 const markerDescription = document.getElementById("markerDescription");
+const markerImageWrapper = document.getElementById("markerImageWrapper");
 const markerImage = document.getElementById("markerImage");
 const markerButtonWrapper = document.getElementById("markerButtonWrapper");
 const markerButton = document.getElementById("markerButton");
@@ -126,7 +135,7 @@ var clicked = "";
 marker1Vavil.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
-    markerImage.classList.remove("markerImageOld");
+    markerImageWrapper.classList.remove("markerImageWrapperOld");
     sideCard.style.backgroundColor = "white";
     opacity();
     clickZoom(this);
@@ -149,7 +158,7 @@ marker1Vavil.on("click", function () {
 marker2Aero.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
-    markerImage.classList.remove("markerImageOld");
+    markerImageWrapper.classList.remove("markerImageWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -170,7 +179,7 @@ marker2Aero.on("click", function () {
 marker3DomFizkult.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
-    markerImage.classList.remove("markerImageOld");
+    markerImageWrapper.classList.remove("markerImageWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -191,7 +200,7 @@ marker3DomFizkult.on("click", function () {
 marker4Klyatva.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
-    markerImage.classList.remove("markerImageOld");
+    markerImageWrapper.classList.remove("markerImageWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -212,7 +221,7 @@ marker4Klyatva.on("click", function () {
 marker5Lenin.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
-    markerImage.classList.remove("markerImageOld");
+    markerImageWrapper.classList.remove("markerImageWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -233,7 +242,7 @@ marker5Lenin.on("click", function () {
 marker6DomKult.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
-    markerImage.classList.remove("markerImageOld");
+    markerImageWrapper.classList.remove("markerImageWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -272,7 +281,7 @@ function closeSide() {
   clicked = "";
   sideCard.classList.remove("sideCardOld");
   markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-  markerImage.classList.remove("markerImageOld");
+  markerImageWrapper.classList.remove("markerImageWrapperOld");
   sideCard.style.backgroundColor = "white";
   markerCloseWrapper.style.backgroundColor = "white";
 }
@@ -297,13 +306,13 @@ function changeTime() {
     sideCard.classList.add("sideCardOld");
     sideCard.style.backgroundColor = "rgb(240, 240, 216)";
     markerCloseWrapper.style.backgroundColor = "rgb(240, 240, 216)";
-    markerImage.classList.add("markerImageOld");
+    markerImageWrapper.classList.add("markerImageWrapperOld");
     markerCloseWrapper.classList.add("markerCloseWrapperOld");
   } else {
     sideCard.classList.remove("sideCardOld");
     sideCard.style.backgroundColor = "white";
     markerCloseWrapper.style.backgroundColor = "white";
-    markerImage.classList.remove("markerImageOld");
+    markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
   }
   // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState];
