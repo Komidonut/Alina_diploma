@@ -133,7 +133,7 @@ marker1Vavil.on("click", function () {
     openSide();
     setTimeout(function () {
       timeState = 0;
-      images = ["img/marker1Vavil.jpg", "img/marker1Vavil_old.jpg"];
+      images = ["img/photos/marker1Vavil.jpg", "img/photos/marker1Vavil_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Вавилонская Башня";
 
@@ -156,7 +156,7 @@ marker2Aero.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker2Aero.jpg", "img/marker2Aero_old.jpg"];
+      images = ["img/photos/marker2Aero.jpg", "img/photos/marker2Aero_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Аэропорт";
       markerDescription.innerHTML =
@@ -177,7 +177,7 @@ marker3DomFizkult.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker3DomFizkult.jpg", "img/marker3DomFizkult_old.jpg"];
+      images = ["img/photos/marker3DomFizkult.jpg", "img/photos/marker3DomFizkult_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Дом физкультурника";
       markerDescription.innerHTML =
@@ -198,7 +198,7 @@ marker4Klyatva.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker4Klyatva.jpg", "img/marker4Klyatva_old.jpg"];
+      images = ["img/photos/marker4Klyatva.jpg", "img/photos/marker4Klyatva_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Клятва";
       markerDescription.innerHTML =
@@ -219,7 +219,7 @@ marker5Lenin.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker5Lenin.jpg", "img/marker5Lenin_old.jpg"];
+      images = ["img/photos/marker5Lenin.jpg", "img/photos/marker5Lenin_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Ленин";
       markerDescription.innerHTML =
@@ -240,7 +240,7 @@ marker6DomKult.on("click", function () {
     clickZoom(this);
     openSide();
     setTimeout(function () {
-      images = ["img/marker6DomKult.jpg", "img/marker6DomKult_old.jpg"];
+      images = ["img/photos/marker6DomKult.jpg", "img/photos/marker6DomKult_old.jpg"];
       markerImage.src = images[0];
       markerHeader.innerHTML = "Дом Культуры";
       markerDescription.innerHTML =

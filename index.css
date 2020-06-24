@@ -246,12 +246,12 @@ table {
 }
 
 #markerImageWrapper {
-  height: 30em;
+  height: 400px;
+  width: 100%;
 }
 #markerImage {
   top: 0em;
   height: 100%;
-  width: 100%;
   /* margin-top: 0.3em; */
   object-fit: cover;
   margin-top: 2em;
@@ -331,7 +331,7 @@ table {
   text-shadow: 0px 0px 0px hsla(0, 0%, 0%, 1);
 }
 
-#markerCloseWrapper {
+#markerScrollWrapper {
   opacity: 1;
   position: fixed;
   bottom: 0;
