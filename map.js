@@ -1,38 +1,63 @@
 var zoomLevel = 15;
 
-//   Задаём геопозицию нужного участка карты
+// Задаём стартовую геопозицию карты
 var mymap = L.map("mapid", { crs: L.CRS.EPSG3395 }).setView(
   [66.039790, 60.131689],
   zoomLevel
 );
 
+// Удаляем зумовые "+-" иконки 
 mymap.zoomControl.remove();
 
 // Вешаем закрытие боковой карточки на клик по любому месту на карте
 mymap.on("click", closeSide);
 
+// Укорачиваем вызов нужного DOM элемента
+const mapid = document.getElementById("mapid");
+const sideCard = document.getElementById("sideCard");
+const markerHeader = document.getElementById("markerHeader");
+const markerDescription = document.getElementById("markerDescription");
+const markerImage = document.getElementById("markerImage");
+const markerButtonWrapper = document.getElementById("markerButtonWrapper");
+const markerButton = document.getElementById("markerButton");
+const markerCloseWrapper = document.getElementById("markerCloseWrapper");
+const element = document.querySelector("#clouds");
+const markerScroll = document.querySelector("#markerScroll");
+
+
+sideCard.onscroll = function() {
+  markerScroll.style.opacity=(5 - Math.floor(sideCard.scrollTop/((sideCard.scrollHeight-document.body.scrollHeight)/10)))/10;
+}
+/*
+on scroll
+  opacity of icon = (10 - Math.floor(sideCard.scrollTop/((sideCard.scrollHeight-document.body.scrollHeight)/10)))/10
+*/
+
+
+// Привязываем параллакс облаков к движению мыши
 document.addEventListener("mousemove", parallax);
 
-const element = document.querySelector("#clouds");
 
 
-    // Magic happens here
+    // Задаём начальную позицию и степень подвижности облаков. Да, я здесь много чего правил на глазок 
     function parallax(e) {
         let _w = window.innerWidth/2;
         let _h = window.innerHeight/4;
         let _mouseX = e.clientX;
         let _mouseY = e.clientY;
+        // 3 левых
         let _depth1 = `${0 - 10 - (_mouseX - _w) * 0.01}% ${0 -23 - (_mouseY - _h) * 0.001}%`;
         let _depth2 = `${0 - 10 - (_mouseX - _w) * 0.002}% ${0 -23 - (_mouseY - _h) * 0.03}%`;
         let _depth3 = `${0 - 10 - (_mouseX - _w) * 0.006}% ${0 -23 - (_mouseY - _h) * 0.009}%`;
+        // 3 средних
         let _depth4 = `${20 - (_mouseX - _w) * 0.004}% ${130 - (_mouseY - _h) * 0.01}%`;
         let _depth5 = `${40 - (_mouseX - _w) * 0.02}% ${90 - (_mouseY - _h) * 0.02}%`;
         let _depth6 = `${20 - (_mouseX - _w) * 0.007}% ${130 - (_mouseY - _h) * 0.06}%`;
+        // 3 правых
         let _depth7 = `${120 - (_mouseX - _w) * 0.01}% ${60 - (_mouseY - _h) * 0.2}%`;
         let _depth8 = `${120 - (_mouseX - _w) * 0.002}% ${60 - (_mouseY - _h) * 0.04}%`;
         let _depth9 = `${120 - (_mouseX - _w) * 0.006}% ${60 - (_mouseY - _h) * 0.08}%`;
         let x = `${_depth9},${_depth8},${_depth7},${_depth6},${_depth5},${_depth4},${_depth3}, ${_depth2}, ${_depth1}`;
-        console.log(x);
         element.style.backgroundPosition = x;
     }
 
@@ -40,7 +65,6 @@ const element = document.querySelector("#clouds");
 //Устанавливаем связь между маркерами и их иконками
 var marker1Icon = L.icon({
   iconUrl: 'img/icons/marker1Vavil.svg',
-
   iconSize:     [38, 95], // size of the icon
   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
   // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
@@ -48,41 +72,40 @@ var marker1Icon = L.icon({
 
 var marker2Aero = L.icon({
   iconUrl: 'img/icons/marker2Aero.svg',
-
   iconSize:     [38, 95], // size of the icon
   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
   // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+
 var marker3DomFizkult = L.icon({
   iconUrl: 'img/icons/marker3DomFizkult.svg',
-
   iconSize:     [38, 95], // size of the icon
   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
   // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+
 var marker4Klyatva = L.icon({
   iconUrl: 'img/icons/marker4Klyatva.svg',
-
   iconSize:     [38, 95], // size of the icon
   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
   // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+
 var marker5Lenin = L.icon({
   iconUrl: 'img/icons/marker5Lenin.svg',
-
   iconSize:     [38, 95], // size of the icon
   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
   // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
+
 var marker6DomKult = L.icon({
   iconUrl: 'img/icons/marker6DomKult.svg',
-
   iconSize:     [38, 95], // size of the icon
   iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
   // popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
-// Расставляем маркеры
+// Задаём координаты маркеров
 var marker1Vavil = L.marker([66.041081, 60.135448], {icon: marker1Icon}).addTo(mymap);
 var marker2Aero = L.marker([66.053127, 60.11825], {icon: marker2Aero}).addTo(mymap);
 var marker3DomFizkult = L.marker([66.040552, 60.139855], {icon: marker3DomFizkult}).addTo(mymap);
@@ -90,15 +113,6 @@ var marker4Klyatva = L.marker([66.040479, 60.131207], {icon: marker4Klyatva}).ad
 var marker5Lenin = L.marker([66.037283, 60.115107], {icon: marker5Lenin}).addTo(mymap);
 var marker6DomKult = L.marker([66.040217, 60.149658], {icon: marker6DomKult}).addTo(mymap);
 
-// Укорачиваем вызов нужного элемента
-var mapid = document.getElementById("mapid");
-var sideCard = document.getElementById("sideCard");
-var markerHeader = document.getElementById("markerHeader");
-var markerDescription = document.getElementById("markerDescription");
-var markerImage = document.getElementById("markerImage");
-var markerButtonWrapper = document.getElementById("markerButtonWrapper");
-var markerButton = document.getElementById("markerButton");
-var markerCloseWrapper = document.getElementById("markerCloseWrapper");
 
 var images = [];
 var buttonLabel = ["⟵ В прошлое", "В настоящее ⟶"];

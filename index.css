@@ -127,10 +127,10 @@ table {
   background-image:
     url(img/Clouds/1.png),
     url(img/Clouds/2.png),
-    url(img/Clouds/3.png),
+    url(img/Clouds/5.png),
     url(img/Clouds/4.png),
     url(img/Clouds/6.png),
-    url(img/Clouds/3.png),
+    url(img/Clouds/2.png),
     url(img/Clouds/4.png),
     url(img/Clouds/6.png),
     url(img/Clouds/5.png);
@@ -330,3 +330,12 @@ table {
 #markerButton:active {
   text-shadow: 0px 0px 0px hsla(0, 0%, 0%, 1);
 }
+
+#markerCloseWrapper {
+  opacity: 1;
+  position: fixed;
+  bottom: 0;
+  margin: auto;
+  height: 4em;
+}
+
