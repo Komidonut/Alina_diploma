@@ -1,3 +1,5 @@
+//Да, этому коду нужен рефакторинг, я знаю. Я сделаю.
+
 var zoomLevel = 15;
 
 // Задаём стартовую геопозицию карты
@@ -136,6 +138,7 @@ marker1Vavil.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImageWrapper.classList.remove("markerImageWrapperOld");
+    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
     opacity();
     clickZoom(this);
@@ -159,6 +162,7 @@ marker2Aero.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImageWrapper.classList.remove("markerImageWrapperOld");
+    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -180,6 +184,7 @@ marker3DomFizkult.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImageWrapper.classList.remove("markerImageWrapperOld");
+    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -201,6 +206,7 @@ marker4Klyatva.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImageWrapper.classList.remove("markerImageWrapperOld");
+    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -222,6 +228,7 @@ marker5Lenin.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImageWrapper.classList.remove("markerImageWrapperOld");
+    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -243,6 +250,7 @@ marker6DomKult.on("click", function () {
   if (clicked !== this.getLatLng()) {
     sideCard.classList.remove("sideCardOld");
     markerImageWrapper.classList.remove("markerImageWrapperOld");
+    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
     timeState = 0;
     opacity();
@@ -280,8 +288,9 @@ function closeSide() {
   sideCard.style.transform = "translateX(100%)";
   clicked = "";
   sideCard.classList.remove("sideCardOld");
-  markerCloseWrapper.classList.remove("markerCloseWrapperOld");
+  
   markerImageWrapper.classList.remove("markerImageWrapperOld");
+  markerCloseWrapper.classList.remove("markerCloseWrapperOld");
   sideCard.style.backgroundColor = "white";
   markerCloseWrapper.style.backgroundColor = "white";
 }
@@ -314,6 +323,7 @@ function changeTime() {
     markerCloseWrapper.style.backgroundColor = "white";
     markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
+    
   }
   // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState];
   markerButton.innerHTML = buttonLabel[timeState];
