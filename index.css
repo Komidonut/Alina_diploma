@@ -142,6 +142,8 @@ table {
     
 }
 
+
+
 #header {
   /* background-color: white; */
   padding: 0.5em;
@@ -216,24 +218,18 @@ table {
 
 #markerCloseWrapper {
   
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* line-height: 5em; */
-  text-align: center;
-  top: 0em;
-  height: 5em;
-  width: 100%;
-  background-color: white;
-  border-bottom: 2px solid rgb(65, 64, 62);
+  
+    width: 80%;
+    transition: all 0.3s ease-out;
+    z-index: 100000;
+    margin: 3em auto 2em auto;
+  
+  
   transition: all 0.3s ease-out;
   z-index: 100000;
 }
 
-.markerCloseWrapperOld {
-  border-bottom-right-radius: 225px 15px;
-  transition: all 0.3s ease-out;
-}
+
 
 #markerClose {
   font-family: "Amatic SC", cursive;
@@ -250,43 +246,38 @@ table {
   text-shadow: 0px 0px 0px hsla(0, 0%, 0%, 1);
 }
 
+
+
+
 #markerImageWrapper {
-  height: 400px;
-  width: 100%;
-  text-align: center;
-  border-bottom: 2px solid rgb(65, 64, 62);
+  display: flex;
+  width: 70%;
+  margin: auto;
+  padding: 2em;
   background-image: url(img/deer.svg);
-  background-size: 3em;
-  background-repeat: repeat;
-  overflow: hidden;
+  background-size: 2em;
+  background-repeat:space;
 }
-
-.markerImageWrapperOld {
-  border-bottom: 2px solid rgb(65, 64, 62);
-  border-bottom-left-radius: 225px 15px;
-  /* box-sizing: border-box; */
-  transition: all 0.3s ease-out;
-}
-
 #markerImage {
- 
-  height: 100%;
-   margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  box-shadow: 0px 0px 0px white;
+  transition: all 0.3s ease-out;
+  margin:  auto;
+  
   /* box-shadow: 0px 10px 10px hsla(0, 0%, 0%, 0.2); */
 }
-
 
 #markerHeader {
   color: rgb(65, 64, 62);
   display: block;
-  width: 80%;
+  width: 70%;
   margin-top: 1em;
-  margin-bottom: 0em;
+  margin-bottom: 0.5em;
   margin-left: auto;
   margin-right: auto;
   font-size: 2em;
-  text-align: center;
+  text-align: left;
+  line-height: 1.4em;
 }
 
 #markerDescriptionWrapper {
@@ -321,15 +312,15 @@ table {
   display: flex;
   width: 80%;
   margin: 2em auto;
-  align-items: stretch;
-  justify-content: center;
+  
+  
 }
 
 #markerButton {
   color: black;
   font-family: "Amatic SC", cursive;
   font-weight: 700;
-  font-size: 1.4em;
+  font-size: 1.7em;
   transition: all 0.3s ease-out;
 }
 #markerButton:hover {
@@ -342,15 +333,17 @@ table {
 #markerScrollWrapper {
   opacity: 1;
   position: fixed;
-  bottom: 0px;
+  top: calc(50vh);
+  display: none;
   margin: auto;
-  height: 4em;
+  height: 2em;
   width: 100%;
-  text-align: center;
+  margin-bottom: 2em;
 }
 
 #markerScroll {
   height: 100%;
-  margin: auto;
+  
+  margin-left: 1em;
 }
 

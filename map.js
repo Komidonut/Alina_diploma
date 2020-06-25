@@ -34,8 +34,19 @@ const markerImage = document.getElementById("markerImage");
 const markerButtonWrapper = document.getElementById("markerButtonWrapper");
 const markerButton = document.getElementById("markerButton");
 const markerCloseWrapper = document.getElementById("markerCloseWrapper");
+const markerClose = document.getElementById("markerClose");
 const clouds = document.querySelector("#clouds");
 const markerScroll = document.querySelector("#markerScroll");
+
+markerClose.onclick = function(){
+  mymap.flyTo(clicked, zoomLevel, {
+    animate: true,
+    duration: 0.4
+  });
+  closeSide();
+  document.querySelector("#clouds").style.opacity="1";
+  document.querySelector("#clouds").style.backgroundSize="30em";
+}
 
 
 sideCard.onscroll = function() {
@@ -138,14 +149,9 @@ var clicked = "";
 // Вешаем открытие боковой карточки с нужным содержанием на маркеры.
 marker1Vavil.on("click", function () {
   if (clicked !== this.getLatLng()) {
-    sideCard.classList.remove("sideCardOld");
-    markerImageWrapper.classList.remove("markerImageWrapperOld");
-    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-    sideCard.style.backgroundColor = "white";
-    markerCloseWrapper.style.backgroundColor = "white";
+    removeOld();
     opacity();
     clickZoom(this);
-
     openSide();
     setTimeout(function () {
       timeState = 0;
@@ -164,11 +170,7 @@ marker1Vavil.on("click", function () {
 
 marker2Aero.on("click", function () {
   if (clicked !== this.getLatLng()) {
-    sideCard.classList.remove("sideCardOld");
-    markerImageWrapper.classList.remove("markerImageWrapperOld");
-    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-    sideCard.style.backgroundColor = "white";
-    markerCloseWrapper.style.backgroundColor = "white";
+    removeOld();
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -187,11 +189,7 @@ marker2Aero.on("click", function () {
 
 marker3DomFizkult.on("click", function () {
   if (clicked !== this.getLatLng()) {
-    sideCard.classList.remove("sideCardOld");
-    markerImageWrapper.classList.remove("markerImageWrapperOld");
-    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-    sideCard.style.backgroundColor = "white";
-    markerCloseWrapper.style.backgroundColor = "white";
+    removeOld();
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -210,11 +208,7 @@ marker3DomFizkult.on("click", function () {
 
 marker4Klyatva.on("click", function () {
   if (clicked !== this.getLatLng()) {
-    sideCard.classList.remove("sideCardOld");
-    markerImageWrapper.classList.remove("markerImageWrapperOld");
-    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-    sideCard.style.backgroundColor = "white";
-    markerCloseWrapper.style.backgroundColor = "white";
+    removeOld();
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -233,11 +227,7 @@ marker4Klyatva.on("click", function () {
 
 marker5Lenin.on("click", function () {
   if (clicked !== this.getLatLng()) {
-    sideCard.classList.remove("sideCardOld");
-    markerImageWrapper.classList.remove("markerImageWrapperOld");
-    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-    sideCard.style.backgroundColor = "white";
-    markerCloseWrapper.style.backgroundColor = "white";
+    removeOld();
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -245,7 +235,7 @@ marker5Lenin.on("click", function () {
     setTimeout(function () {
       images = ["img/photos/marker5Lenin.jpg", "img/photos/marker5Lenin_old.jpg"];
       markerImage.src = images[0];
-      markerHeader.innerHTML = "Ленин";
+      markerHeader.innerHTML = "Памятник Ленину";
       markerDescription.innerHTML =
         "<p>Монумент Владимиру Ленину, вначале был открыт <strong>6 ноября 1959 года</strong> в сквере Театральный, между улицами Горной (Кулешова) и Театральной (Халеева), за Домом культуры угольщиков. Фигура Ленина была изготовлена в полный рост <em>из платинированной меди</em>, <em>высотой 3 метра 20 сантиметров</em>. Авторы памятника: московский скульптор Самуил Осипович Махтин и архитектор Владимир Кузьмич Доброноженко.</p><br><p> Известно, что памятники Ленину часто являлись «серийной продукцией» и изготовлялись фабричным способом в Московской области. По данным, приводимым газетой «Московский комсомолец», на 2003 год в России насчитывалось около <em>1 800 памятников</em> Ленину и <em>до 20 000 бюстов</em>. Во многих городах его скульптуры возвышаются на центральных площадях.</p><br><p> Почти через 23 года, 29 сентября 1982 года, Совет Министров Коми АССР постановил присвоить центральной городской площади Инты имя Владимира Ильича Ленина. Долгое время горожане её называли <strong>«новой»</strong>, но тогда она получила другое и уже официальное название: <strong>«Площадь имени В. И. Ленина»</strong>. </p><br><p>Скульптуру В.И. Ленина из сквера за Домом культуры перенесли на новый пьедестал, в центр Инты. Открытие памятника произошло <strong>7 октября 1982 года</strong> – в день Конституции СССР.";
       markerButton.innerHTML = buttonLabel[0];
@@ -256,11 +246,8 @@ marker5Lenin.on("click", function () {
 
 marker6DomKult.on("click", function () {
   if (clicked !== this.getLatLng()) {
-    sideCard.classList.remove("sideCardOld");
-    markerImageWrapper.classList.remove("markerImageWrapperOld");
-    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-    sideCard.style.backgroundColor = "white";
-    markerCloseWrapper.style.backgroundColor = "white";
+    
+    removeOld();
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -290,18 +277,25 @@ L.tileLayer(
 
 // Определяем функции
 function openSide() {
+  sideCard.scrollTo(0,0);
   sideCard.style.transform = "translateX(0%)";
 }
 function closeSide() {
-  
   sideCard.style.transform = "translateX(100%)";
   clicked = "";
+  removeOld();
+}
+
+function removeOld() {
   sideCard.classList.remove("sideCardOld");
-  
-  markerImageWrapper.classList.remove("markerImageWrapperOld");
-  markerCloseWrapper.classList.remove("markerCloseWrapperOld");
   sideCard.style.backgroundColor = "white";
-  markerCloseWrapper.style.backgroundColor = "white";
+  markerImage.style.boxShadow="0px 0px 0px white";
+}
+
+function addOld() {
+  sideCard.classList.add("sideCardOld");
+  sideCard.style.backgroundColor = "rgb(240, 240, 216)";
+  markerImage.style.boxShadow="0px 0px 20px rgba(65, 64, 62, 0.4)";
 }
 
 function opacity() {
@@ -323,20 +317,8 @@ function clickZoom(marker) {
 function changeTime() {
   timeState = (timeState + 1) % 2;
   // opacity();
-  if (timeState === 1) {
-    sideCard.classList.add("sideCardOld");
-    sideCard.style.backgroundColor = "rgb(240, 240, 216)";
-    markerCloseWrapper.style.backgroundColor = "rgb(240, 240, 216)";
-    markerImageWrapper.classList.add("markerImageWrapperOld");
-    markerCloseWrapper.classList.add("markerCloseWrapperOld");
-  } else {
-    sideCard.classList.remove("sideCardOld");
-    sideCard.style.backgroundColor = "white";
-    markerCloseWrapper.style.backgroundColor = "white";
-    markerImageWrapper.classList.remove("markerImageWrapperOld");
-    markerCloseWrapper.classList.remove("markerCloseWrapperOld");
-    
-  }
+  timeState === 1 ? addOld() : removeOld(); 
+  
   
   markerButton.innerHTML = buttonLabel[timeState];
   markerImage.src = images[timeState];
