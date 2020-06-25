@@ -19,6 +19,8 @@ mymap.on("click", function(e){
       duration: 0.4
     });
     closeSide();
+    document.querySelector("#clouds").style.opacity="1";
+    document.querySelector("#clouds").style.backgroundSize="30em";
   }
 });
 
@@ -32,17 +34,17 @@ const markerImage = document.getElementById("markerImage");
 const markerButtonWrapper = document.getElementById("markerButtonWrapper");
 const markerButton = document.getElementById("markerButton");
 const markerCloseWrapper = document.getElementById("markerCloseWrapper");
-const element = document.querySelector("#clouds");
+const clouds = document.querySelector("#clouds");
 const markerScroll = document.querySelector("#markerScroll");
 
 
 sideCard.onscroll = function() {
   markerScroll.style.opacity=(5 - Math.floor(sideCard.scrollTop/((sideCard.scrollHeight-document.body.scrollHeight)/10)))/10;
-}
-/*
-on scroll
-  opacity of icon = (10 - Math.floor(sideCard.scrollTop/((sideCard.scrollHeight-document.body.scrollHeight)/10)))/10
-*/
+};
+
+markerScroll.onclick = function(e){
+  sideCard.scrollTo(0,sideCard.scrollHeight);
+};
 
 
 // Привязываем параллакс облаков к движению мыши
@@ -69,7 +71,7 @@ document.addEventListener("mousemove", parallax);
         let _depth8 = `${120 - (_mouseX - _w) * 0.002}% ${60 - (_mouseY - _h) * 0.04}%`;
         let _depth9 = `${120 - (_mouseX - _w) * 0.006}% ${60 - (_mouseY - _h) * 0.08}%`;
         let x = `${_depth9},${_depth8},${_depth7},${_depth6},${_depth5},${_depth4},${_depth3}, ${_depth2}, ${_depth1}`;
-        element.style.backgroundPosition = x;
+        clouds.style.backgroundPosition = x;
     }
 
 
@@ -124,7 +126,7 @@ var marker4Klyatva = L.marker([66.040479, 60.131207], {icon: marker4Klyatva}).ad
 var marker5Lenin = L.marker([66.037283, 60.115107], {icon: marker5Lenin}).addTo(mymap);
 var marker6DomKult = L.marker([66.040217, 60.149658], {icon: marker6DomKult}).addTo(mymap);
 
-
+// Задаём переменные, нужные для позиционирования маркеров
 var images = [];
 var buttonLabel = ["⟵ В прошлое", "В настоящее ⟶"];
 var buttonAlignment = ["flex-start", "flex-end"];
@@ -140,8 +142,10 @@ marker1Vavil.on("click", function () {
     markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
+    markerCloseWrapper.style.backgroundColor = "white";
     opacity();
     clickZoom(this);
+
     openSide();
     setTimeout(function () {
       timeState = 0;
@@ -149,7 +153,7 @@ marker1Vavil.on("click", function () {
       markerImage.src = images[0];
       markerHeader.innerHTML = "Вавилонская Башня";
 
-      markerDescription.style.textOverflow = "ellipsis;";
+      
       markerDescription.innerHTML =
         "<p>Трудно представить эмблему Инты, как и сам северный город без <strong>водонапорной башни</strong>. Она находится на артезианской скважине и строилась для водоснабжения населенного пункта. Башня была возведена за два строительных сезона, в 1953 – 1954 годах. В работе участвовали <em>11 с половиной тысяч человек</em> – заключенные интинских лагерей. Среди них были русские, украинцы, немцы, евреи, литовцы, эстонцы, венгры. Между собой он называли башню <strong>«вавилонской»</strong>.</p><br><p>Одним из авторов сооружения был швед по национальности – <em>Артур-Густав Тамвелиус</em>. Он же заключённый интинских лагерей, приговорённый по обвинению в шпионаже, а через десятилетия посмертно реабилитированный.</p><br><p>Утилитарную функцию башня утратила. С 2014 года здесь размещена экспозиция «Музея истории политических репрессий».</p><br><p><strong>СПРАВОЧНО</strong>: Общая высота башни со звездой 54,4 метра – это <em>около 20 этажей</em>. Фундамент постройки залегает <em>на глубине 5 метров</em>.</p>";
       markerButton.innerHTML = buttonLabel[0];
@@ -164,6 +168,7 @@ marker2Aero.on("click", function () {
     markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
+    markerCloseWrapper.style.backgroundColor = "white";
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -186,6 +191,7 @@ marker3DomFizkult.on("click", function () {
     markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
+    markerCloseWrapper.style.backgroundColor = "white";
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -208,6 +214,7 @@ marker4Klyatva.on("click", function () {
     markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
+    markerCloseWrapper.style.backgroundColor = "white";
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -230,6 +237,7 @@ marker5Lenin.on("click", function () {
     markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
+    markerCloseWrapper.style.backgroundColor = "white";
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -252,6 +260,7 @@ marker6DomKult.on("click", function () {
     markerImageWrapper.classList.remove("markerImageWrapperOld");
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     sideCard.style.backgroundColor = "white";
+    markerCloseWrapper.style.backgroundColor = "white";
     timeState = 0;
     opacity();
     clickZoom(this);
@@ -306,6 +315,9 @@ function opacity() {
 
 function clickZoom(marker) {
   mymap.setView(marker.getLatLng(), zoomLevel+3);
+  document.querySelector("#clouds").style.opacity="0"
+  document.querySelector("#clouds").style.backgroundSize="50em";
+  
 }
 
 function changeTime() {
@@ -325,7 +337,7 @@ function changeTime() {
     markerCloseWrapper.classList.remove("markerCloseWrapperOld");
     
   }
-  // markerButtonWrapper.style.justifyContent=buttonAlignment[timeState];
+  
   markerButton.innerHTML = buttonLabel[timeState];
   markerImage.src = images[timeState];
 }

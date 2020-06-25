@@ -134,9 +134,12 @@ table {
     url(img/Clouds/4.png),
     url(img/Clouds/6.png),
     url(img/Clouds/5.png);
+    background-size: 30em;
+    opacity: 1;
     background-repeat: no-repeat;
     pointer-events: none;
-  
+    transition: all 1s ease-out;
+    
 }
 
 #header {
@@ -206,12 +209,13 @@ table {
   border-bottom: 0;
   border-top-left-radius: 5px 125px;
   border-bottom-left-radius: 5px 125px;
+  transition: all 0.5s ease-out;
   /* border-radius: 255px 15pxborder-top-left-radius: 255px 15px; 225px 15px/15px 225px 15px 255px; */
   /* box-shadow: -20px 0px 20px hsla(0, 0%, 0%, 0.2); */
 }
 
 #markerCloseWrapper {
-  position: fixed;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -228,6 +232,7 @@ table {
 
 .markerCloseWrapperOld {
   border-bottom-right-radius: 225px 15px;
+  transition: all 0.3s ease-out;
 }
 
 #markerClose {
@@ -337,7 +342,7 @@ table {
 #markerScrollWrapper {
   opacity: 1;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   margin: auto;
   height: 4em;
   width: 100%;
